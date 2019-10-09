@@ -1,0 +1,60 @@
+package Atletas;
+
+public class AtletaFutebol extends Atleta{
+	//HERANÇA
+	
+	
+	private Time time;
+	private String posicao;
+
+	public AtletaFutebol (String nome, String genero, String nacionalidade, String modalidade, String peso, String altura, long salario, int anoNascimento,int inicioCarreira, String medalha,String posicao, Time time){
+	super(nome,genero,nacionalidade,modalidade,peso,altura,salario,anoNascimento,inicioCarreira);
+			this.posicao = posicao;
+			this.time = time;
+			
+	}
+
+	public AtletaFutebol() {
+		
+		
+	}
+
+	public Time getTime() {
+		return time;
+	}
+
+	public void setTime(Time time) {
+		this.time = time;
+	}
+
+	public String getPosicao() {
+		return posicao;
+	}
+
+	public void setPosicao(String posicao) {
+		this.posicao = posicao;
+	}
+
+
+	@Override
+	public String toString() {
+		
+		return "\nNome: " +this.getNome() +"\nGenero: " +this.getGenero()+ "\nNacionalidade:" +this.getNacionalidade() + "\nModalidade" +this.getModalidade() +"\nSalario Base: " + this.getSalario() + "\nPeso: " + this.getPeso() +
+				"\nAltura: " + this.getAltura() + "\nAno do Nascimento: " + this.getAnoNascimento() + "\nInicio da Carreira: " +this.getInicioCarreira() +"\nPosição: " + this.getPosicao() + "\nTime:"
+				+ this.getTime().getTime() + "\nTempo de Carreira: " + calcularTempoCarreira()+"\nIdade: " + cacularIdade() +"\nCaso Campeão: "  + getValorCalculado();
+	}
+
+	@Override
+	public int cacularIdade() {
+		
+		return 2019 - this.getAnoNascimento();
+	}
+
+	@Override
+	public int calcularTempoCarreira() {
+		
+		return 2019 - this.getInicioCarreira();
+	}
+
+	
+}
