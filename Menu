@@ -1,0 +1,143 @@
+package Atletas;
+
+import java.util.Scanner;
+
+public class Menu {
+	
+	
+	public static void menu(){
+        System.out.println("*********************************************\r\n" + 
+        		"\tMENU PRINCIPAL\r\n" + 
+        		"*********************************************");
+        System.out.println("1 – Cadastrar");
+        System.out.println("2 – Mostrar");
+        System.out.println("3 – Excluir");
+        System.out.println("4 – Sair Do Sistema");
+     
+        System.out.println("Opcao:");
+    }
+
+    public static void inclui(){
+        System.out.println("\t Dados");
+        ;
+    }
+   
+    public static void altera(){
+        System.out.println("\t Mostrar");
+    }
+   
+    public static void exclui(){
+        System.out.println("\t Excluir");
+    }
+	    
+	public static void main(String[] args) {
+		AtletaFutebol []linha = new AtletaFutebol[2];
+		
+		int opcao;
+    	Scanner entrada = new Scanner(System.in);
+       
+        do{
+            menu();
+            opcao = entrada.nextInt();
+           
+            switch(opcao){
+            case 1:
+            	System.out.println("Entrou no menu Cadastrar");
+            		
+            			for (int i=0; i<linha.length; i++) {
+            				linha[i] = new AtletaFutebol();
+            				System.out.println("Digite Nome: ");
+            				linha[i].setNome(entrada.next());
+            				System.out.println("Digite Genero:");
+            				linha[i].setGenero(entrada.next());
+            				System.out.println("Digite Nacionalidade:");
+            				linha[i].setNacionalidade(entrada.next());
+            				System.out.println("Digite Modalidade:");
+            				linha[i].setModalidade(entrada.next());
+            				System.out.println("Digite Peso:");
+            				linha[i].setPeso(entrada.next());
+            				System.out.println("Digite Altura:");
+            				linha[i].setAltura(entrada.next());
+            				System.out.println("Digite Salario:");
+            				linha[i].setSalario(entrada.nextLong());
+            				System.out.println("Digite Ano de Nascimento:");
+            				linha[i].setAnoNascimento(entrada.nextInt());
+            				System.out.println("Digite Inicio da Carreira:");
+            				linha[i].setInicioCarreira(entrada.nextInt());
+            				System.out.println("Digite Posição:");
+            				linha[i].setPosicao(entrada.next());
+            				System.out.println("Escolha Time:");
+            				Scanner leitor = new Scanner(System.in);
+            				
+            				do{
+            					System.out.println("**************************************************************");
+            					System.out.println("Escolha os times");
+            					System.out.println("**************************************************************");			
+            					System.out.println("1 - São Paulo");
+            					System.out.println("2 - Corinthians");
+            					System.out.println("3 - Palmeiras");
+            					System.out.println("4 - Santos");
+            					System.out.println();
+            					System.out.print("ESCOLHA A OPÇÃO DESEJADA: ");
+            					opcao = leitor.nextInt();
+            					
+            					switch(opcao){
+            						case 1:
+            							System.out.println("Opção escolhida - 1");
+            							Time tm01 = new Time();
+            							tm01.setTime("São Paulo");
+            							linha[i].setTime(tm01);
+            							break;
+            							
+            						case 2:
+            							System.out.println("Opção escolhida - 2");
+            							Time tm02 = new Time();
+            							tm02.setTime("Corinthians");
+            							linha[i].setTime(tm02);
+            							break;
+            						case 3:
+            							System.out.println("Opção escolhida - 3");
+            							Time tm03 = new Time();
+            							tm03.setTime("Palmeiras");
+            							linha[i].setTime(tm03);
+            							break;
+            						case 4:
+            							System.out.println("Opção escolhida - 4");
+            							Time tm04 = new Time();
+            							tm04.setTime("Santos");
+            							linha[i].setTime(tm04);
+            							break;
+            					}
+            					
+            				}while(opcao>4);
+    			}
+    			
+            	break;
+               
+            case 2:
+            	for(int i=0; i<linha.length;i++) {
+            		linha[i].calcularBonus(1000);
+    				linha[i].calcularBonus(1000, 1000);
+            		System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^");
+    				System.out.println(linha[i]);
+    				
+            	}
+                break;
+            	
+            case 3:
+            	
+                break;
+               
+            case 4:
+               System.exit(1);
+                break;
+           
+            default:
+                System.out.println("Opção inválida.");
+            }
+        } while(opcao != 0);
+            
+            
+	}
+
+}
