@@ -1,0 +1,207 @@
+package Atletas;
+
+import Atletas.Validadores;
+
+public abstract class Atleta {
+		
+	
+	
+			//ATRIBUTOS
+	private String nome, nacionalidade, modalidade, peso, altura, genero;
+	private double premio, valorCalculado;
+	private int anoNascimento, inicioCarreira ;
+	private long salario;
+	
+
+	//Construtor personalizado
+	public Atleta(String nome, String genero, String nacionalidade, String modalidade, String peso, String altura, long salario, int anoNascimento,int inicioCarreira){
+		this.nome = nome;
+		this.nacionalidade = nacionalidade;
+		this.modalidade = modalidade;
+		this.peso = peso;
+		this.altura = altura; 
+		this.anoNascimento = anoNascimento;
+		this.salario =salario;
+		this.inicioCarreira = inicioCarreira;
+		
+		this.genero = genero;
+
+		
+	}
+	
+		public Atleta() {
+		super();
+	}
+
+		//METODOS GETTERS AND SETTERS
+
+	public String getNome() {
+		return nome;
+	}
+
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+
+	public String getNacionalidade() {
+		return nacionalidade;
+	}
+
+
+	
+
+	public String getPeso() {
+		return peso;
+	}
+
+
+	
+
+	public String getAltura() {
+		return altura;
+	}
+
+
+
+
+
+
+
+
+	public String getGenero() {
+		return genero;
+	}
+
+
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
+
+
+	public double getPremio() {
+		return premio;
+	}
+
+
+	public void setPremio(double premio) {
+		this.premio = premio;
+	}
+
+
+	
+
+
+	public void setValorCalculado(double valorCalculado) {
+		this.valorCalculado = valorCalculado;
+	}
+
+
+	public int getAnoNascimento() {
+		return anoNascimento;
+	}
+
+
+	public void setAnoNascimento(int anoNascimento) {
+		this.anoNascimento = anoNascimento;
+	}
+
+
+	public int getInicioCarreira() {
+		return inicioCarreira;
+	}
+
+
+	public void setInicioCarreira(int inicioCarreira) {
+		this.inicioCarreira = inicioCarreira;
+	}
+
+
+
+
+	public long getSalario() {
+		return salario;
+	}
+
+
+	public void setSalario(long salario) {
+		this.salario = salario;
+	}
+	// Validadores
+	public void setNacionalidade(String nacionalidade) {
+		this.nacionalidade = Validadores.eliminarEspaco(nacionalidade);
+	}
+
+
+	public String getModalidade() {
+		return Validadores.eliminarEspaco(modalidade);
+	}
+
+
+	public void setModalidade(String modalidade) {
+		this.modalidade = modalidade;
+	}
+	
+
+	
+	//SOBRECARGA DE MÉTODOS
+
+	public  void calcularBonus(){
+		premio = 1000;
+	}
+
+	public void calcularBonus(double valor1){
+		premio = valor1;
+	}
+
+
+	public void calcularBonus(double valor1, double valor2){
+		premio = valor1 + valor2 + salario;
+	}
+
+	
+	public double getValorCalculado() {
+		return premio;
+	}
+	
+	 //METODOS
+	public abstract int cacularIdade();	
+	public abstract int calcularTempoCarreira();
+
+		@Override
+		public String toString() {
+			
+			return "\nNome: " +this.getNome() +"\nGenero: " +this.getGenero()+ "\nNacionalidade:" +this.getNacionalidade() + "\nModalidade" + this.getModalidade() + "Peso: " + this.getPeso() + "Altura: " + this.getAltura() + "Ano do Nascimento: " + this.getAnoNascimento() + "Inicio da Carreira: " +this.getInicioCarreira();
+		}
+	//VALIDADORES
+
+
+	public void setPeso(String peso){
+		if(Validadores.validarPeso(peso)){
+			this.peso = peso;
+		}else{
+			System.out.println("Peso inválido!");
+
+		}
+	}
+
+	public void setAltura(String altura){
+		if(Validadores.validarAltura(altura)){
+			this.altura = altura;
+		}else{
+			System.out.println("Altura inválida!");
+
+		}
+		
+			
+
+		
+
+			
+		
+		
+			
+
+}
+}
