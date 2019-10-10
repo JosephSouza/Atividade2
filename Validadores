@@ -1,0 +1,25 @@
+package Atletas;
+
+public class Validadores {
+	public static boolean validarPeso(String peso) {
+
+		if(peso.length()<=3){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	public static boolean validarAltura(String altura) {
+		if(altura.length()==4){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public static String eliminarEspaco(String nome){
+		return nome.trim();
+		
+	}
+ 
+}
