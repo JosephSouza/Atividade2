@@ -1,0 +1,24 @@
+package Atletas;
+
+public class Time {
+private String time;
+public String getTime() {
+	return time;
+}
+
+public void setTime(String time) {
+	this.time = time;
+}
+
+private int nuCamisa;
+
+public int getNuCamisa() {
+	return nuCamisa;
+}
+
+public void setNuCamisa(int nuCamisa) {
+	this.nuCamisa = nuCamisa;
+	
+}
+
+}
